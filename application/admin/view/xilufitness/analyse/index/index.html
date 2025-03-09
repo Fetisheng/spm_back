@@ -1,0 +1,359 @@
+<style type="text/css">
+    .sm-st {
+        background: #fff;
+        padding: 20px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        margin-bottom: 20px;
+    }
+
+    .sm-st-icon {
+        width: 60px;
+        height: 60px;
+        display: inline-block;
+        line-height: 60px;
+        text-align: center;
+        font-size: 30px;
+        background: #eee;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        float: left;
+        margin-right: 10px;
+        color: #fff;
+    }
+
+    .sm-st-info {
+        padding-top: 2px;
+    }
+
+    .sm-st-info span {
+        display: block;
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .orange {
+        background: #fa8564 !important;
+    }
+
+    .tar {
+        background: #45cf95 !important;
+    }
+
+    .sm-st .green {
+        background: #86ba41 !important;
+    }
+
+    .pink {
+        background: #AC75F0 !important;
+    }
+
+    .yellow-b {
+        background: #fdd752 !important;
+    }
+
+    .stat-elem {
+
+        background-color: #fff;
+        padding: 18px;
+        border-radius: 40px;
+
+    }
+
+    .stat-info {
+        text-align: center;
+        background-color: #fff;
+        border-radius: 5px;
+        margin-top: -5px;
+        padding: 8px;
+        -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);
+        font-style: italic;
+    }
+
+    .stat-icon {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .st-red {
+        background-color: #F05050;
+    }
+
+    .st-green {
+        background-color: #27C24C;
+    }
+
+    .st-violet {
+        background-color: #7266ba;
+    }
+
+    .st-blue {
+        background-color: #23b7e5;
+    }
+
+    .stats .stat-icon {
+        color: #28bb9c;
+        display: inline-block;
+        font-size: 26px;
+        text-align: center;
+        vertical-align: middle;
+        width: 50px;
+        float: left;
+    }
+
+    .stat {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+    }
+
+    .stat .value {
+        font-size: 20px;
+        line-height: 24px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: 500;
+    }
+
+    .stat .name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 5px 0;
+    }
+
+    .stat.lg .value {
+        font-size: 26px;
+        line-height: 28px;
+    }
+
+    .stat-col {
+        margin: 0 0 10px 0;
+    }
+
+    .stat.lg .name {
+        font-size: 16px;
+    }
+
+    .stat-col .progress {
+        height: 2px;
+    }
+
+    .stat-col .progress-bar {
+        line-height: 2px;
+        height: 2px;
+    }
+
+    .item {
+        padding: 30px 0;
+    }
+
+
+    #statistics .panel {
+        min-height: 150px;
+    }
+
+    #statistics .panel h5 {
+        font-size: 14px;
+    }
+
+    .z_data_row {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .z_data_row .data_item {
+        width: 20%;
+        padding: 15px 0 0;
+        text-align: center;
+    }
+
+    .z_data_row .num {
+        margin: 0 0 10px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .z_title1 {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .panel{
+        background-color: unset;
+        box-shadow: unset;
+    }
+
+    .z_data_box{
+        margin: 0 0 15px;
+        padding: 15px;
+        background-color: #fff;
+        border-radius: 10px;
+    }
+</style>
+<div class="panel panel-default panel-intro">
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+
+                <section class="content">
+                    <div class="z_data_box">
+                        <div class="z_title1">课程统计</div>
+                        <div class="z_data_row">
+                            <div class="data_item">
+                                <div class="num">
+                                    {$courseAnalyse['course_1']|default='0'}
+                                </div>
+                                <div>
+                                    {:__('待开团课')}
+                                </div>
+                            </div>
+
+                            <div class="data_item">
+                                <div class="num">
+                                    {$courseAnalyse['course_2']|default='0'}
+                                </div>
+                                <div>
+                                    {:__('待开私教课')}
+                                </div>
+                            </div>
+
+                            <div class="data_item">
+                                <div class="num">
+                                    {$courseAnalyse['course_3']|default='0'}
+                                </div>
+                                <div>
+                                    {:__('待开活动')}
+                                </div>
+                            </div>
+
+                            <div class="data_item">
+                                <div class="num">
+                                    {$dayAnalyse['record_count']|default='0'}
+                                </div>
+                                <div>
+                                    {:__('今日核销课程数')}
+                                </div>
+                            </div>
+                            <div class="data_item">
+                                <div class="num">
+                                    {$dayAnalyse['sign_count']|default='0'}
+                                </div>
+                                <div>
+                                    {:__('今日报名数')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="z_data_box">
+                        <div class="z_title1">会员/财务/统计</div>
+                        <div class="z_data_row">
+                            <div class="data_item">
+                                <div class="num">
+                                    {$analyseData['user_count']|default='0'}
+                                </div>
+                                <div>
+                                    {:__('会员总数量')}
+                                </div>
+                            </div>
+
+                            <div class="data_item">
+                                <div class="num">
+                                    {$courseAnalyse['course_2']|default='0'}
+                                </div>
+                                <div>
+                                    {:__('今日会员注册数')}
+                                </div>
+                            </div>
+                            {neq name="is_fitness_shop" value="1"}
+                            <div class="data_item">
+                                <div class="num">
+                                    {$dayAnalyse['recharge_amount']|default='0'}
+                                </div>
+                                <div>
+                                    {:__('今日充值金额')}
+                                </div>
+                            </div>
+                            <div class="data_item">
+                                <div class="num">
+                                    {$analyseData['recharge_total_amount']|default='0'}
+                                </div>
+                                <div>
+                                    {:__('充值总金额')}
+                                </div>
+                            </div>
+                            {/neq}
+
+                            <div class="data_item">
+                                <div class="num">
+                                    {$analyseData['sign_total_amount']|default='0'}
+                                </div>
+                                <div>
+                                    {:__('报名总金额')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="z_data_box">
+                        <div class="z_title1">门店统计</div>
+                            <div class="z_data_row">
+                                {neq name="is_fitness_shop" value="1"}
+                                    <div class="data_item">
+                                        <div class="num">
+                                            {$analyseData['shop_count']|default='0'}
+                                        </div>
+                                        <div>
+                                            {:__('门店数量')}
+                                        </div>
+                                    </div>
+                                {/neq}
+                                <div class="data_item">
+                                    <div class="num">
+                                        {$courseAnalyse['coach_count']|default='0'}
+                                    </div>
+                                    <div>
+                                        {:__('教练')}
+                                    </div>
+                                </div>
+
+                            </div>
+
+                    </div>
+
+                    <div class="row" style="width: 100%; background: #fff;padding: 15px;margin: 0 0 15px;border-radius: 10px;">
+                        <form action="" method="GET" role="form" data-toggle="validator" class="form-inline nice-validator n-default n-bootstrap" style="width: 100%;">
+                            <div class="bg-w br5" style="margin-bottom: 10px;">
+                                <a href="javascript:;" class="btn btn-primary btn-refresh"><i class="fa fa-refresh"></i></a>
+                                <a href="javascript:;" class="btn btn-success btn-filter">今天</a>
+                                <a href="javascript:;" class="btn btn-success btn-filter">昨天</a>
+                                <a href="javascript:;" class="btn btn-success btn-filter">最近7天</a>
+                                <a href="javascript:;" class="btn btn-success btn-filter">最近30天</a>
+                                <a href="javascript:;" class="btn btn-success btn-filter">上月</a>
+                                <a href="javascript:;" class="btn btn-success btn-filter">本月</a>
+                                <div class="input-group" style="width: 40%;">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    <input type="text" name="row[search_date]" id="search_date"
+                                           class="form-control input-inline datetimerange"
+                                           placeholder="指定日期"
+                                           style="padding: 6px; border: 1px solid #dadee5; box-shadow: none;"
+                                           value="{$params['search_date'] ?? ''}">
+                                </div>
+                        </div>
+                        </form>
+                        <div  style="width: 100%;">
+                            <div id="echart_order" class="btn-refresh" style="height: 300px; width: 100%; -webkit-tap-highlight-color: transparent; user-select: none; position: relative;"></div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+        </div>
+    </div>
+</div>

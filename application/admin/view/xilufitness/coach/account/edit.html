@@ -1,0 +1,45 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Brand_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-brand_id" disabled data-rule="required" data-source="xilufitness/brand/index" data-field="brand_name" class="form-control selectpage" name="row[brand_id]" type="text" value="{$row.brand_id|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Coach_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-coach_id" disabled data-rule="required" data-source="xilufitness/coach/index" data-field="coach_name" class="form-control selectpage" name="row[coach_id]" type="text" value="{$row.coach_id|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Account')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-account" disabled min="0" class="form-control" step="0.01" name="row[account]" type="number" value="{$row.account|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Course_count')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input disabled id="c-course_count" min="0" class="form-control" name="row[course_count]" type="number" value="{$row.course_count|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Class_duration')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input disabled id="c-class_duration" min="0" class="form-control" name="row[class_duration]" type="number" value="{$row.class_duration|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Course_total_count')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input disabled id="c-course_total_count" min="0" class="form-control" name="row[course_total_count]" type="number" value="{$row.course_total_count|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+        </div>
+    </div>
+</form>

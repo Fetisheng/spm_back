@@ -1,0 +1,172 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+    <input type="hidden" name="row[brand_id]" id="c-brand_id" value="1"/>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Course_id')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-course_id" placeholder="请选择" data-rule="required" data-source="xilufitness/course/index" data-field="title" class="form-control selectpage" name="row[course_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Shop_id')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-shop_id" min="0" placeholder="请选择" data-rule="required" data-source="xilufitness/shop/index" data-field="shop_name" data-multiple="true" class="form-control selectpage" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group" style="display: none;">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Coach_list')}:</label>
+        <div class="col-xs-12 col-sm-8" id="coach_list">
+
+        </div>
+    </div>
+
+
+    {if condition="!empty($add_flag)"}
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('日期范围')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-4">
+            <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                <input id="c-start_date" placeholder="请选择开始时间" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD" name="date_start_at" type="text">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                <input id="c-end_date" placeholder="请选择结束时间" data-rule="required" class="form-control datetimepicker" name="date_end_at" data-date-format="YYYY-MM-DD" type="text">
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('排课类型')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="radio">
+                <label for="date_type_01"><input id="date_type_01" name="date_type" type="radio" checked value="week"/>周度</label>
+                <label for="date_type_02"><input id="date_type_02" name="date_type" type="radio" value="month"/>月度</label>
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group" id="week-select">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox1" name="week_items[]" value="1">周一
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox2" name="week_items[]" value="2">周二
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox3" name="week_items[]" value="3">周三
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox4" name="week_items[]" value="4">周四
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox5" name="week_items[]" value="5">周五
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox6" name="week_items[]" value="6">周六
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox7" name="week_items[]" value="0">周日
+            </label>
+        </div>
+    </div>
+    <div class="form-group" id="day-select" hidden="hidden">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <label class="checkbox-inline"><input type="checkbox" id="day-1" name="day_items[]" value="1">01日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-2" name="day_items[]" value="2">02日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-3" name="day_items[]" value="3">03日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-4" name="day_items[]" value="4">04日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-5" name="day_items[]" value="5">05日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-6" name="day_items[]" value="6">06日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-7" name="day_items[]" value="7">07日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-8" name="day_items[]" value="8">08日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-9" name="day_items[]" value="9">09日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-10" name="day_items[]" value="10">10日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-11" name="day_items[]" value="11">11日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-12" name="day_items[]" value="12">12日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-13" name="day_items[]" value="13">13日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-14" name="day_items[]" value="14">14日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-15" name="day_items[]" value="15">15日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-16" name="day_items[]" value="16">16日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-17" name="day_items[]" value="17">17日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-18" name="day_items[]" value="18">18日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-19" name="day_items[]" value="19">19日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-20" name="day_items[]" value="20">20日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-21" name="day_items[]" value="21">21日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-22" name="day_items[]" value="22">22日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-23" name="day_items[]" value="23">23日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-24" name="day_items[]" value="24">24日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-25" name="day_items[]" value="25">25日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-26" name="day_items[]" value="26">26日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-27" name="day_items[]" value="27">27日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-28" name="day_items[]" value="28">28日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-29" name="day_items[]" value="29">29日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-30" name="day_items[]" value="30">30日</label>
+            <label class="checkbox-inline"><input type="checkbox" id="day-31" name="day_items[]" value="31">31日</label>
+        </div>
+    </div>
+    {else /}
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-2">{:__('Class_time')}<span style="color: red;">*</span>:</label>
+            <div class="col-xs-12 col-sm-8">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                    <input id="c-class_time" min="0" placeholder="请选择" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="row[class_time]" type="text" value="">
+                </div>
+
+            </div>
+        </div>
+    {/if}
+
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('上课时间段')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-4">
+            <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                <input id="c-start_at" placeholder="请选择开始时间" data-rule="required" class="form-control datetimepicker" data-date-format="HH:mm:00" name="row[start_at]" type="text">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                <input id="c-end_at" placeholder="请选择结束时间" data-rule="required" class="form-control datetimepicker"  name="row[end_at]" data-date-format="HH:mm:00" type="text">
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Sign_count')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-sign_count" placeholder="请输入" data-rule="required" class="form-control" name="row[sign_count]" type="number">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Wait_count')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-wait_count" placeholder="请输入" data-rule="required" class="form-control" name="row[wait_count]" type="number">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            
+            <div class="radio">
+            {foreach name="statusList" item="vo"}
+            <label for="row[status]-{$key}"><input id="row[status]-{$key}" name="row[status]" type="radio" value="{$key}" {in name="key" value="normal"}checked{/in} /> {$vo}</label> 
+            {/foreach}
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+        </div>
+    </div>
+</form>

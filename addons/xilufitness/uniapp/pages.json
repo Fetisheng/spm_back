@@ -1,0 +1,288 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTextStyle": "white",
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/stores_list/stores_list",
+			"style": {
+				"navigationBarTitleText": "门店列表",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#0F1011",
+				"navigationBarTextStyle": "white"
+			}
+
+		}, {
+			"path": "pages/stores_info/stores_info",
+			"style": {
+				"navigationBarTextStyle": "white",
+				"navigationBarTitleText": "门店详情",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/group_lessons_info/group_lessons_info",
+			"style": {
+				"navigationBarTextStyle": "white",
+				"navigationBarTitleText": "课程详情",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/pay_order/pay_order",
+			"style": {
+				"navigationBarTextStyle": "white",
+				"navigationBarTitleText": "下单支付",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/pay_success/pay_success",
+			"style": {
+				"navigationBarTitleText": "支付成功",
+				"navigationBarBackgroundColor": "#0E0E0F",
+				"navigationBarTextStyle": "white",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/trainer_info/trainer_info",
+			"style": {
+				"navigationBarTextStyle": "white",
+				"navigationBarTitleText": "教练详情",
+				"enablePullDownRefresh": false
+			}
+
+
+		}, {
+			"path": "pages/bootcamp_info/bootcamp_info",
+			"style": {
+				"navigationBarTextStyle": "white",
+				"navigationBarTitleText": "活动详情",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/coupons_list/coupons_list",
+			"style": {
+				"navigationBarTitleText": "使用代金劵",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/course_classification/course_classification",
+			"style": {
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/trainer/trainer",
+			"style": {
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/booking/booking",
+			"style": {
+				"navigationBarTitleText": "预约",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/booking_info/booking_info",
+			"style": {
+				"navigationBarTitleText": "预约详情",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/base_info/base_info",
+			"style": {
+				"navigationBarTitleText": "基本信息",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/my_point/my_point",
+			"style": {
+				"navigationBarTitleText": "我的积分",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/my_money/my_money",
+			"style": {
+				"navigationBarTitleText": "我的余额",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/member/member",
+			"style": {
+				"navigationBarTitleText": "会员",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/member_order/member_order",
+			"style": {
+				"navigationBarTitleText": "会员订单",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/my_medal/my_medal",
+			"style": {
+				"navigationBarTitleText": "我的勋章",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/my_coupons_list/my_coupons_list",
+			"style": {
+				"navigationBarTitleText": "我的代金劵",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/my_faviors/my_faviors",
+			"style": {
+				"navigationBarTitleText": "我的收藏",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/ranking/ranking",
+			"style": {
+				"navigationBarTitleText": "排行",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/invite/invite",
+			"style": {
+				"navigationBarTitleText": "邀请有礼",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/about_us/about_us",
+			"style": {
+				"navigationBarTitleText": "文章详情",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/help_center/help_center",
+			"style": {
+				"navigationBarTitleText": "帮助中心",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/scheduling/scheduling",
+			"style": {
+				"navigationBarTitleText": "排课",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/scheduling_info/scheduling_info",
+			"style": {
+				"navigationBarTitleText": "详情",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/profile/profile",
+			"style": {
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/my_income/my_income",
+			"style": {
+				"navigationBarTitleText": "我的收入",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/payouts/payouts",
+			"style": {
+				"navigationBarTitleText": "提现",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/students_ranking/students_ranking",
+			"style": {
+				"navigationBarTitleText": "学员排名",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/my_grade/my_grade",
+			"style": {
+				"navigationBarTitleText": "我的等级",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/report/report",
+			"style": {
+				"navigationBarTitleText": "请假报备",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/add_report/add_report",
+			"style": {
+				"navigationBarTitleText": "新增报备",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/user_appraise_list/user_appraise_list",
+			"style": {
+				"navigationBarTitleText": "用户评价",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/white_appraise/white_appraise",
+			"style": {
+				"navigationBarTitleText": "评价",
+				"enablePullDownRefresh": false
+			}
+
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#0E0E0F",
+		"backgroundColor": "#0E0E0F"
+	},
+	"onReachBottomDistance": 30,
+"permission": {
+    "scope.userLocation": {
+        "desc": "初始化时获取用户的位置信息用于外出打卡定位" 
+    }
+},
+"requiredPrivateInfos": ["getLocation", "chooseLocation"],
+	"uniIdRouter": {}
+}

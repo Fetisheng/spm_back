@@ -1,0 +1,29 @@
+{if condition="!empty($list)"}
+<div class="box">
+    <div class="box-body no-padding">
+        <table class="table table-condensed">
+            <tbody>
+                <tr>
+                    <td>{:__('Shop_name')}</td>
+                    <td>{:__('Course_price')}</td>
+                    <td>{:__('Write_off_price')}</td>
+                    <td>{:__('Coach_id')}</td>
+                </tr>
+                {volist name="list" id="vo"}
+                    <tr>
+                    <td>{$vo.shop_name|htmlentities}</td>
+                    <td>{$courseInfo.course_price|default=0|htmlentities}</td>
+                    <td>{$courseInfo.write_off_price|default=0|htmlentities}</td>
+                    <td>
+                        <input type="hidden" name="row[shop_id][]" value="{$vo.id|default=0|htmlentities}">
+                        <input id="c-coach_id" min="0" placeholder="请选择" data-rule="required" data-source="xilufitness/coach/index" data-field="coach_name" data-params='{"custom[brand_id]":"{$vo.brand_id}","custom[status]":"normal","custom[shop_ids]":["like","%{$vo.id}%"]}' class="form-control selectpage" name="row[coach_id][]" type="text" value="">
+                    </td>
+                </tr>
+                {/volist}
+
+            </tbody>
+        </table>
+    </div>
+    <!-- /.box-body -->
+</div>
+{/if}

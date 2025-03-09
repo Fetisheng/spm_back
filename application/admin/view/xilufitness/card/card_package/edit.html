@@ -1,0 +1,118 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+    <input type="hidden" name="row[brand_id]" id="c-brand_id" value="{$row.brand_id|htmlentities}">
+    <input type="hidden" name="row[card_category_ids]" id="c-category_ids" value="{$row.card_category_ids|htmlentities}">
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('套餐名称')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-package-name" placeholder="请输入" data-rule="required" class="form-control" name="row[package_name]" type="text" value="{$row.package_name|htmlentities}">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('套餐简介')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-package-desc" class="form-control editor" rows="2" name="row[package_desc]" cols="50">{$row.package_desc|htmlentities}</textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('套餐封面')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-package-avatar" placeholder="请上传" class="form-control" size="50" name="row[package_avatar]" type="text" value="{$row.package_avatar|htmlentities}">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="faupload-coach_avatar" class="btn btn-danger faupload" data-input-id="c-coach_avatar" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp,image/webp" data-multiple="false" data-preview-id="p-coach_avatar"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-coach_avatar" class="btn btn-primary fachoose" data-input-id="c-coach_avatar" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-coach_avatar"></span>
+            </div>
+            <ul class="row list-inline faupload-preview" id="p-coach_avatar"></ul>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('套餐设置')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="form-inline" data-toggle="cxselect" data-selects="province,city">
+                <select class="province form-control">
+                    <option>请选择</option>
+                    <option value="1">次卡</option>
+                    <option value="2">时长卡</option>
+                    <option value="4">课程次卡</option>
+                </select>
+                <select id="card_category_id" data-rule="required" class="city form-control" data-query-name="card_type" data-url="xilufitness/card/user_card/get_card_category">
+                    <option>请选择</option>
+                </select>
+                <button type="button" id="add_card" class="btn btn-primary btn-embossed">{:__('添加')}</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('套餐内容信息')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8" id="card_info">
+            <div class="box">
+                <div class="box-body no-padding">
+                    <table class="table table-condensed" style="text-align: center">
+                        <tbody id="category-box">
+                        <tr>
+                            <td>会员卡名称</td>
+                            <td>会员卡类型</td>
+                            <td>次卡额度(次)</td>
+                            <td>会员卡有效期</td>
+                            <td>售价(元)</td>
+                            <td>操作</td>
+                        </tr>
+                        {foreach name="card_category_list" item="vo"}
+                            <tr category-id="{$vo.card_category_id}">
+                                <td>{$vo.cardname}</td>
+                                <td>{$vo.cardtypename}</td>
+                                <td>{$vo.timescardquota}</td>
+                                <td>{$vo.expiretimes}</td>
+                                <td>{$vo.cardprice}</td>
+                                <td><i class="fa fa-trash delete-category" style='cursor: pointer' category-id="{$vo.card_category_id}"></i></td>
+                            </tr>
+                        {/foreach}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('总售价')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-card-price" placeholder="请输入" data-rule="required" class="form-control" name="row[total_price]" type="number" value="{$row.total_price|htmlentities}">
+                <div class="input-group-addon">{:__('(元)')}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="radio">
+                {foreach name="statusList" item="vo"}
+                <label for="row[status]-{$key}"><input id="row[status]-{$key}" name="row[status]" type="radio" value="{$key}" {in name="key" value="$row.status"}checked{/in} /> {$vo}</label>
+                {/foreach}
+            </div>
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('展示顺序')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-card-sort" placeholder="请输入" data-rule="required" class="form-control" name="row[sort]" type="number" value="{$row.sort|htmlentities}">
+        </div>
+    </div>
+
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+        </div>
+    </div>
+</form>

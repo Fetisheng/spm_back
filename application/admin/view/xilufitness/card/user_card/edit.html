@@ -1,0 +1,117 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+    <input type="hidden" name="row[brand_id]" id="c-brand_id" value="{$row.brand_id|htmlentities}"/>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('持卡人')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-user_name" readonly data-rule="required" placeholder="请选择用户" class="form-control" type="text" value="{$row.user.nickname|htmlentities}">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('会员卡名称')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-card-name" readonly data-rule="required" placeholder="请选择用户" class="form-control" type="text" value="{$row.category.cardname|htmlentities}">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('会员卡类型')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select class="form-control" disabled='disabled'>
+                <option value="1" {if $row.category.cardtype=='1'}selected{/if}>次卡</option>
+                <option value="2" {if $row.category.cardtype=='2'}selected{/if}>时长卡</option>
+                <option value="4" {if $row.category.cardtype=='4'}selected{/if}>课程次卡</option>
+            </select>
+        </div>
+    </div>
+
+    {if $row.card_type=='1'}
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('次卡剩余次数')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-times-card-quota" placeholder="请输入" data-rule="required" class="form-control" type="number" name="row[left_times_count]" value="{$row.left_times_count|htmlentities}">
+                <div class="input-group-addon">{:__('(次)')}</div>
+            </div>
+        </div>
+    </div>
+    {/if}
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('生效日期')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                <input id="c-effective_date" min="0" placeholder="请选择" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="row[effective_date]" type="text" value="{$row.effective_date|htmlentities}">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('有效期止期')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                <input id="c-expire_time" min="0" placeholder="请选择" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="row[expire_time]" type="text" value="{$row.expire_time|htmlentities}">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('售卡门店')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-shop_ids" placeholder="请选择" data-max-select-limit="1" data-rule="required" data-source="xilufitness/shop/index" data-field="shop_name" class="form-control selectpage" name="row[shop_id]" type="text" value="{$row.shop_id|htmlentities}">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('实收金额(元)')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-card-price" placeholder="请输入" data-rule="required" class="form-control" name="row[actual_price]" type="number" value="{$row.actual_price|htmlentities}">
+                <div class="input-group-addon">{:__('(元)')}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('支付方式')}:<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select id="c-type" data-rule="required" class="form-control selectpicker" name="row[pay_type]">
+                {foreach name="payList" item="vo"}
+                <option value="{$key}" {in name="key" value="$row.pay_type"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Status')}:<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+
+            <div class="radio">
+                {foreach name="statusList" item="vo"}
+                <label for="row[status]-{$key}"><input id="row[status]-{$key}" name="row[status]" type="radio" value="{$key}" {in name="key" value="1"}checked{/in} /> {$vo}</label>
+                {/foreach}
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('备注')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-remark_content" class="form-control editor" rows="5" name="row[remark]" cols="50">{$row.remark|htmlentities}</textarea>
+        </div>
+    </div>
+
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+        </div>
+    </div>
+</form>

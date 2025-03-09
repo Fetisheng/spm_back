@@ -1,0 +1,101 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+    <input type="hidden" name="row[brand_id]" id="c-brand_id" value="{$row.brand_id|htmlentities}"/>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Shop_ids')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            {if condition="!empty($fitness_shop_id)"}
+            <input id="c-shop_ids" placeholder="请选择" data-rule="required" data-source="xilufitness/shop/index" data-field="shop_name" data-multiple="true" class="form-control selectpage" name="row[shop_ids]" type="text" value="{$row.shop_ids|htmlentities}" disabled>
+            {else/}
+            <input id="c-shop_ids" placeholder="请选择" data-rule="required" data-source="xilufitness/shop/index" data-field="shop_name" data-multiple="true" class="form-control selectpage" name="row[shop_ids]" type="text" value="{$row.shop_ids|htmlentities}">
+            {/if}
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Coach_group_id')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-coach_group_id" placeholder="请选择" data-rule="required" data-source="xilufitness/coach/group/index" data-field="group_name" class="form-control selectpage" name="row[coach_group_id]" type="text" value="{$row.coach_group_id|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Coach_name')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-coach_name" placeholder="请输入" data-rule="required" class="form-control" name="row[coach_name]" type="text" value="{$row.coach_name|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Coach_mobile')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-coach_mobile" placeholder="请输入" data-rule="required;mobile" class="form-control" name="row[coach_mobile]" type="text" value="{$row.coach_mobile|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Coach_avatar')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-coach_avatar" placeholder="请上传" class="form-control" size="50" name="row[coach_avatar]" type="text" value="{$row.coach_avatar|htmlentities}">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="faupload-coach_avatar" class="btn btn-danger faupload" data-input-id="c-coach_avatar" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp,image/webp" data-multiple="false" data-preview-id="p-coach_avatar"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-coach_avatar" class="btn btn-primary fachoose" data-input-id="c-coach_avatar" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-coach_avatar"></span>
+            </div>
+            <ul class="row list-inline faupload-preview" id="p-coach_avatar"></ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Coach_images')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-coach_images" placeholder="请上传" class="form-control" size="50" name="row[coach_images]" type="text" value="{$row.coach_images|htmlentities}">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="faupload-coach_images" class="btn btn-danger faupload" data-input-id="c-coach_images" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp,image/webp" data-multiple="true" data-preview-id="p-coach_images"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-coach_images" class="btn btn-primary fachoose" data-input-id="c-coach_images" data-mimetype="image/*" data-multiple="true"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-coach_images"></span>
+            </div>
+            <ul class="row list-inline faupload-preview" id="p-coach_images"></ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Coach_sex')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-coach_sex" class="form-control selectpicker" name="row[coach_sex]">
+                {foreach name="coachSexList" item="vo"}
+                    <option value="{$key}" {in name="key" value="$row.coach_sex"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Lable_ids')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-lable_ids" placeholder="请选择" data-rule="required" data-source="xilufitness/lable/index" data-field="lable_name" data-multiple="true" class="form-control selectpage" name="row[lable_ids]" type="text" value="{$row.lable_ids|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Coach_info')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-coach_info" placeholder="请输入" data-rule="required" class="form-control" name="row[coach_info]" rows="5">{$row.coach_info|htmlentities}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            
+            <div class="radio">
+            {foreach name="statusList" item="vo"}
+            <label for="row[status]-{$key}"><input id="row[status]-{$key}" name="row[status]" type="radio" value="{$key}" {in name="key" value="$row.status"}checked{/in} /> {$vo}</label> 
+            {/foreach}
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+        </div>
+    </div>
+</form>

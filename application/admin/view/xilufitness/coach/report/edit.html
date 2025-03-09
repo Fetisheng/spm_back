@@ -1,0 +1,39 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+    <input type="hidden" name="row[brand_id]" value="{$row.brand_id|htmlentities}"/>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Coach_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input disabled id="c-coach_id" min="0" placeholder="请选择" data-rule="required" data-source="xilufitness/coach/index" data-field="coach_name" class="form-control selectpage" name="row[coach_id]" type="text" value="{$row.coach_id|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Start_at')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input  id="c-start_at" placeholder="请选择" data-rule="required" class="form-control datetimepicker" data-date-format="Y-M-D HH:mm:ss" name="row[start_at]" value="{$row.start_at ? date('Y-m-d H:i:s',$row.start_at) : ''}" type="text"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('End_at')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input  id="c-end_at" placeholder="请选择" data-rule="required" class="form-control datetimepicker" data-date-format="Y-M-D HH:mm:ss" name="row[end_at]" value="{$row.end_at ? date('Y-m-d H:i:s',$row.end_at) : ''}" type="text"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Description')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input  id="c-description" class="form-control" name="row[description]" type="text" value="{$row.description|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Report_status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:Form::radios("row[report_status]",$statusList,$row.report_status)}
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+        </div>
+    </div>
+</form>

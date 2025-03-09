@@ -1,0 +1,214 @@
+<style type="text/css">
+    #coursesTable {
+        padding: 15px 10px;
+    }
+
+    .Courses-head {
+        background-color: #edffff;
+        height: 45px;
+    }
+
+    .Courses-head > div {
+        text-align: center;
+        font-size: 14px;
+        line-height: 45px;
+        border-left: none !important;
+    }
+
+    .left-hand-TextDom, .Courses-head {
+        background-color: #f2f6f7;
+    }
+
+    .Courses-leftHand {
+        background-color: #f2f6f7;
+        font-size: 12px;
+        width: 80px;
+    }
+
+    .Courses-leftHand .left-hand-index {
+        color: #9c9c9c;
+        margin-bottom: 4px !important;
+    }
+
+    .Courses-leftHand .left-hand-name {
+        color: #666;
+    }
+
+    .Courses-leftHand p {
+        text-align: center;
+        font-weight: 900;
+    }
+
+    .Courses-leftHand > div {
+        padding-top: 5px;
+        border-bottom: 1px dashed rgb(219, 219, 219);
+    }
+
+    .Courses-leftHand > div:last-child {
+        border-bottom: none !important;
+    }
+
+    .left-hand-TextDom, .Courses-head {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .Courses-content > ul {
+        border-bottom: 1px dashed rgb(219, 219, 219);
+        box-sizing: border-box;
+    }
+
+    .Courses-content > ul:last-child {
+        border-bottom: none !important;
+    }
+
+    .highlight-week {
+        color: #02a9f5 !important;
+        background: #fffb00;
+        font-weight: 700;
+    }
+
+/*    .Courses-content li {
+        text-align: center;
+        color: #666666;
+        font-size: 14px;
+        line-height: 50px;
+        overflow: hidden;
+    }
+
+    .Courses-content li span {
+        padding: 6px 2px;
+        box-sizing: border-box;
+        line-height: 18px;
+        border-radius: 4px;
+        white-space: normal;
+        word-break: break-all;
+        cursor: pointer;
+    }*/
+
+    .Courses-content li {
+        position: relative; /* 设置相对定位，以便于i标签绝对定位 */
+        padding: 10px; /* 添加内边距 */
+        border: none; /* 添加边框，仅作示例 */
+        width: 200px; /* 设置宽度，仅作示例 */
+        overflow: hidden;
+        list-style-type: none; /* 移除默认的列表样式 */
+        display: flex; /* 使用Flexbox布局 */
+        flex-direction: column;
+        align-items: center; /* 垂直居中对齐 */
+        justify-content: center; /* 水平居中对齐，如果需要的话 */
+    }
+    .Courses-content li p {
+        margin: 0 auto;
+        border: none; /* 添加边框，仅作示例 */
+        width: 100%; /* 设置宽度为100%，以便内容撑开 */
+        line-height: 20px;
+        overflow: hidden;
+    }
+    .Courses-content li i {
+        position: absolute; /* 设置绝对定位 */
+        top: 0; /* 距离顶部0 */
+        right: 0; /* 距离右边0 */
+        border-radius: 5px;
+        background-color: #0a4b3e; /* 设置背景色，以便与li背景区分 */
+        padding: 0 5px; /* 添加内边距 */
+    }
+
+    .grid-active {
+        z-index: 99;
+    }
+
+    .grid-active span {
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .courses-header{
+        height: 40px;
+        width: 100%;
+    }
+    .courses-header label, .courses-header button,.courses-header select,.courses-header option{
+        height: 40px;
+        margin: auto;
+        text-align: center;
+    }
+    .courses-header label{
+        font-size: 15px;
+        height: 40px;
+        padding: 10px 10px 10px 20px;
+    }
+    th,td {
+        text-align: center;
+        vertical-align: middle;
+    }
+    .modal-week-time {
+        text-align: center;
+        vertical-align: middle;
+        width: 30%;
+    }
+    .modal-week-course {
+        text-align: center;
+        vertical-align: middle;
+        width: 70%;
+    }
+
+</style>
+
+<div class="panel panel-default panel-intro">
+
+    <!-- 模态弹出窗 -->
+    <div class="modal fade" id="mymodal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                        <tr>
+                            <th id="modal-week">时间段</th>
+                            <th>课程安排</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="modal-week-tb">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <div class="row courses-header">
+            <div class="col-md-2 col-sm-offset-1">
+                <div class="row">
+                    <div class="btn-group" role="group" aria-label="...">
+                        <a id="course_refresh_btn" class="btn btn-primary btn-refresh" title="{:__('Refresh')}" ><i class="fa fa-refresh"></i> </a>
+                        <a id="course_add_btn" class="btn btn-success btn-add {:$auth->check('xilufitness/work/course/add')?'':'hide'}" title="{:__('Add')}" ><i class="fa fa-plus"></i> {:__('Add')}</a>
+                        <a id="courses_add_btn" class="btn btn-primary btn-add {:$auth->check('xilufitness/work/course/add')?'':'hide'}" title="{:__('一键排课')}" > {:__('一键排课')}</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-xs-6 col-sm-6 col-md-4 col-lg-3">
+                <label for="course-shop" class="control-label col-xs-4">门店名称</label>
+                <div class="col-xs-6">
+                    <input type="hidden" class="form-control operate" name="status-operate" id="course-shop" data-name="course-shop" value="" readonly="">
+                    <select class="form-control" id="course-shop-select" name="course-shop">
+                        {foreach name="shop_list" item="vo"}
+                            <option value="{$vo.shop_id}">{$vo.shop_name}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-offset-3">
+                <div class="row">
+                    <div class="btn-group" role="group" aria-label="...">
+                        <button type="button" class="btn btn-primary" id="last_week_btn">上一周</button>
+                        <button type="button" class="btn btn-success" id="now_week_btn">本周</button>
+                        <button type="button" class="btn btn-primary" id="next_week_btn">下一周</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="coursesTable"></div>
+    </div>
+</div>

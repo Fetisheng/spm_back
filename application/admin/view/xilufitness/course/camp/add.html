@@ -1,0 +1,106 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+    <input type="hidden" name="row[brand_id]" id="c-brand_id" value="1"/>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Title')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-title" placeholder="请输入" data-rule="required" class="form-control" name="row[title]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Description')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-description" placeholder="请输入" data-rule="required" class="form-control" rows="5" name="row[description]"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Thumb_image')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-thumb_image" placeholder="请上传" data-rule="required" class="form-control" size="50" name="row[thumb_image]" type="text">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="faupload-thumb_image" class="btn btn-danger faupload" data-input-id="c-thumb_image" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp,image/webp" data-multiple="false" data-preview-id="p-thumb_image"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-thumb_image" class="btn btn-primary fachoose" data-input-id="c-thumb_image" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-thumb_image"></span>
+            </div>
+            <ul class="row list-inline faupload-preview" id="p-thumb_image"></ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Thumb_images')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-thumb_images" class="form-control" size="50" name="row[thumb_images]" type="textarea">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="faupload-thumb_images" class="btn btn-danger faupload" data-input-id="c-thumb_images" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp,image/webp" data-multiple="true" data-preview-id="p-thumb_images"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-thumb_images" class="btn btn-primary fachoose" data-input-id="c-thumb_images" data-mimetype="image/*" data-multiple="true"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-thumb_images"></span>
+            </div>
+            <ul class="row list-inline faupload-preview" id="p-thumb_images"></ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Lable_ids')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-lable_ids" placeholder="请选择" data-rule="required" data-source="xilufitness/lable/index" data-field="lable_name" data-multiple="true" class="form-control selectpage" name="row[lable_ids]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Content')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-content" placeholder="请输入" data-rule="required" class="form-control editor" rows="5" name="row[content]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Tip_content')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-tip_content" class="form-control editor" rows="5" name="row[tip_content]" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Camp_price')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-camp_price" placeholder="请输入" data-rule="required" class="form-control" name="row[camp_price]" type="number">
+                <div class="input-group-addon">/{:__('People')}</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Write_off_price')}<span style="color: red;">*</span>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-write_off_price" placeholder="请输入" data-rule="required" class="form-control" name="row[write_off_price]" type="number">
+                <div class="input-group-addon">/{:__('People')}</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Market_price')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-market_price" placeholder="请输入" class="form-control" name="row[market_price]" type="number">
+                <div class="input-group-addon">/{:__('People')}</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            
+            <div class="radio">
+            {foreach name="statusList" item="vo"}
+            <label for="row[status]-{$key}"><input id="row[status]-{$key}" name="row[status]" type="radio" value="{$key}" {in name="key" value="normal"}checked{/in} /> {$vo}</label> 
+            {/foreach}
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-primary btn-embossed disabled">{:__('OK')}</button>
+        </div>
+    </div>
+</form>

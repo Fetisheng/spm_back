@@ -1,0 +1,310 @@
+<style type="text/css">
+    .sm-st {
+        background: #fff;
+        padding: 20px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        margin-bottom: 20px;
+    }
+
+    .sm-st-icon {
+        width: 60px;
+        height: 60px;
+        display: inline-block;
+        line-height: 60px;
+        text-align: center;
+        font-size: 30px;
+        background: #eee;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        float: left;
+        margin-right: 10px;
+        color: #fff;
+    }
+
+    .sm-st-info {
+        padding-top: 2px;
+    }
+
+    .sm-st-info span {
+        display: block;
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .orange {
+        background: #fa8564 !important;
+    }
+
+    .tar {
+        background: #45cf95 !important;
+    }
+
+    .sm-st .green {
+        background: #86ba41 !important;
+    }
+
+    .pink {
+        background: #AC75F0 !important;
+    }
+
+    .yellow-b {
+        background: #fdd752 !important;
+    }
+
+    .stat-elem {
+
+        background-color: #fff;
+        padding: 18px;
+        border-radius: 40px;
+
+    }
+
+    .stat-info {
+        text-align: center;
+        background-color: #fff;
+        border-radius: 5px;
+        margin-top: -5px;
+        padding: 8px;
+        -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);
+        font-style: italic;
+    }
+
+    .stat-icon {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .st-red {
+        background-color: #F05050;
+    }
+
+    .st-green {
+        background-color: #27C24C;
+    }
+
+    .st-violet {
+        background-color: #7266ba;
+    }
+
+    .st-blue {
+        background-color: #23b7e5;
+    }
+
+    .stats .stat-icon {
+        color: #28bb9c;
+        display: inline-block;
+        font-size: 26px;
+        text-align: center;
+        vertical-align: middle;
+        width: 50px;
+        float: left;
+    }
+
+    .stat {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+    }
+
+    .stat .value {
+        font-size: 20px;
+        line-height: 24px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: 500;
+    }
+
+    .stat .name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 5px 0;
+    }
+
+    .stat.lg .value {
+        font-size: 26px;
+        line-height: 28px;
+    }
+
+    .stat-col {
+        margin: 0 0 10px 0;
+    }
+
+    .stat.lg .name {
+        font-size: 16px;
+    }
+
+    .stat-col .progress {
+        height: 2px;
+    }
+
+    .stat-col .progress-bar {
+        line-height: 2px;
+        height: 2px;
+    }
+
+    .item {
+        padding: 30px 0;
+    }
+
+
+    #statistics .panel {
+        min-height: 150px;
+    }
+
+    #statistics .panel h5 {
+        font-size: 14px;
+    }
+
+    .z_data_row {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .z_data_row .data_item {
+        width: 14%;
+        padding: 15px 0 0;
+        text-align: center;
+    }
+
+    .z_data_row .num {
+        margin: 0 0 10px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .z_title1 {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .panel{
+        background-color: unset;
+        box-shadow: unset;
+    }
+
+    .z_data_box{
+        margin: 0 0 15px;
+        padding: 15px;
+        background-color: #fff;
+        border-radius: 10px;
+    }
+</style>
+<div class="panel panel-default panel-intro">
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+
+                <section class="content">
+
+                    <div class="z_data_box">
+                        <div class="z_title1">财务统计</div>
+                        <div class="z_data_row">
+                            {neq name="is_fitness_shop" value="1"}
+                            <div class="data_item">
+                                <div class="num">
+                                    {$dayAnalyse['amount_00']|default='0'}
+                                </div>
+                                <div>
+                                    {:__('今日充值金额')}
+                                </div>
+                            </div>
+                            <div class="data_item">
+                                <div class="num">
+                                    {$dayAnalyse['amount_01']|default='0'}
+                                </div>
+                                <div>
+                                    {:__('今日团课报名金额')}
+                                </div>
+                            </div>
+                            <div class="data_item">
+                                <div class="num">
+                                    {$dayAnalyse['amount_02']|default='0'}
+                                </div>
+                                <div>
+                                    {:__('今日私教课报名金额')}
+                                </div>
+                            </div>
+                            <div class="data_item">
+                                <div class="num">
+                                    {$dayAnalyse['amount_03']|default='0'}
+                                </div>
+                                <div>
+                                    {:__('今日活动报名金额')}
+                                </div>
+                            </div>
+                            <div class="data_item">
+                                <div class="num">
+                                    {$dayAnalyse['amount_04']|default='0'}
+                                </div>
+                                <div>
+                                    {:__('今日会员卡购卡金额')}
+                                </div>
+                            </div>
+                            <div class="data_item">
+                                <div class="num">
+                                    {$dayAnalyse['amount_05']|default='0'}
+                                </div>
+                                <div>
+                                    {:__('今日会员卡套餐金额')}
+                                </div>
+                            </div>
+                            {/neq}
+
+                            <div class="data_item">
+                                <div class="num">
+                                    {$dayAnalyse['total_amount']|default='0'}
+                                </div>
+                                <div>
+                                    {:__('今日总金额')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="width: 100%; background: #fff;padding: 15px;margin: 0 0 15px;border-radius: 10px;">
+                        <form action="" method="GET" role="form" data-toggle="validator" class="form-inline nice-validator n-default n-bootstrap" style="width: 100%;">
+                            <div class="bg-w br5" style="margin-bottom: 10px;">
+
+                                <a href="javascript:;" class="btn btn-success select-view day-view">日视图</a>
+                                <a href="javascript:;" class="btn btn-default select-view week-view">周视图</a>
+                                <a href="javascript:;" class="btn btn-default select-view month-view">月视图</a>
+
+                                <div class="btn-group" id="month-btn-group" role="group" aria-label="...">
+                                    <button type="button" class="btn btn-primary" id="last_month_btn">上个月</button>
+                                    <button type="button" class="btn btn-success" id="now_month_btn">本月</button>
+                                    <button type="button" class="btn btn-primary" id="next_month_btn">下个月</button>
+                                </div>
+                                <div class="btn-group" id="year-btn-group" hidden="hidden" role="group" aria-label="...">
+                                    <button type="button" class="btn btn-primary" id="last_year_btn">上一年</button>
+                                    <button type="button" class="btn btn-success" id="now_year_btn">本年</button>
+                                    <button type="button" class="btn btn-primary" id="next_year_btn">下一年</button>
+                                </div>
+
+                                <div class="input-group" style="width: 40%">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    <input type="text" name="row[search_date]" id="search_date"
+                                           class="form-control input-inline datetimerange"
+                                           placeholder="指定日期"
+                                           style="padding: 6px; border: 1px solid #dadee5; box-shadow: none;"
+                                           value="{$params['search_date'] ?? ''}">
+                                </div>
+                                <a href="javascript:;" class="btn btn-primary btn-refresh"><i class="fa fa-refresh"></i></a>
+                        </div>
+                        </form>
+                        <div  style="width: 100%;">
+                            <div id="echart_order" style="height: 550px; width: 100%; -webkit-tap-highlight-color: transparent; user-select: none; position: relative;"></div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+        </div>
+    </div>
+</div>

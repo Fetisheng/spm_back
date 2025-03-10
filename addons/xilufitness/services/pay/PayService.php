@@ -33,7 +33,7 @@ class PayService extends BaseService
                 } elseif ($pay_type == 1){
                     $result = $this->getMemberCardPay($orderInfo);
                 } else {
-                    $result = $this->getWechatPay($orderInfo,$order_type);
+                    $result = $this->getSqbPay($orderInfo,$order_type);
                 }
                 return $result;
             } else {
@@ -128,6 +128,60 @@ class PayService extends BaseService
             $options = $wechat->createParamsForJsApi($result['prepay_id']);
             return $options;
         } catch (\Exception $e){
+            $this->resultError($e->getMessage());
+        }
+    }
+
+    /**
+     * 获取收钱吧支付参数
+     * @param object $orderInfo 订单详情
+     * @param int $order_type 订单类型
+     * @return array
+     */
+    public function getSqbPay(object $orderInfo, int $order_type) {
+        try {
+            // 初始化参数数组
+            $resultMap = [
+                'return_url' => '/pages/user/order/order?rule=3',
+                'timestamp' => $orderInfo['pay_time'],
+                'total_amount' => $orderInfo['pay_amount'] * 100,
+                'terminal_sn' => $this->data['terminal_sn'] ?? '100085370044127607',
+                'client_sn' => $orderInfo['order_no'],
+                'subject' => $orderInfo['pay_body'] ?? '聚岩软件商品支付',
+                'notify_url' => url('/addons/xilufitness/pay/notify', [
+                    'order_type' => $order_type, 
+                    'brand_id' => $orderInfo['brand_id'] ?? 0
+                ], true, true)
+            ];
+
+            // 过滤空值并按键名排序
+            $filteredParams = array_filter($resultMap, function($value) {
+                return !empty($value);
+            });
+            ksort($filteredParams);
+
+            // 构建签名字符串，忽略 timestamp 和 sign
+            $signStr = '';
+            foreach ($filteredParams as $key => $value) {
+                if ($key !== 'sign' && $key !== 'timestamp') {
+                    $signStr .= $key . '=' . $value . '&';
+                }
+            }
+            
+            // 添加终端密钥
+            $terminalKey = $this->data['terminal_key'] ?? '3b525474e13e8249d8b720c10dc1122b';
+            $signStr .= 'key=' . $terminalKey;
+
+            // 计算MD5签名并转大写
+            $sign = strtoupper(md5($signStr));
+            $resultMap['sign'] = $sign;
+            
+            // Add debug information to see the sign string
+            $resultMap['debug_sign_string'] = $signStr;
+            $resultMap['debug_filtered_params'] = $filteredParams;
+
+            return $resultMap;
+        } catch (\Exception $e) {
             $this->resultError($e->getMessage());
         }
     }
